@@ -8,10 +8,25 @@
     />
     <title>Web Components</title>
     <!-- <script src="modal.js"></script> -->
+    <style>
+      div {
+        border: 2px solid orange;
+      }
+    </style>
     <script src="tooltip.js"></script>
   </head>
   <body>
-    <p><aa-tooltip>Web Components</aa-tooltip> are awesome!</p>
+    <!-- <template id="tooltip-template">
+      <slot>Some Default</slot>
+      <span> (?)</span>
+    </template> -->
+    <p>
+      <aa-tooltip text="Web Components is a set of standards.">
+        Web Components
+      </aa-tooltip>
+      are awesome!
+    </p>
+    <aa-tooltip></aa-tooltip>
     <!-- <uc-modal >
       <h1 slot="title">The Modal Title</h1>
       <p>This is our first web component!</p>
