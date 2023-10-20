@@ -12,13 +12,19 @@
       * {
         box-sizing: border-box;
       }
-      html {
+
+      body {
+        font-family: sans-serif;
+        margin: 2rem;
+      }
+
+      /* html {
         --color-primary: #a4e6fc;
         font-family: sans-serif;
       }
       div {
         border: 2px solid orange;
-      }
+      } */
       /* aa-tooltip {
         border: 1px solid blue;
         padding: 0.15rem;
@@ -30,13 +36,41 @@
     </style>
     <script src="./scripts/tooltip.js"></script>
     <script src="./scripts/confirm-link.js"></script>
+    <script src="./scripts/modal.js"></script>
   </head>
   <body>
+    <aa-modal>
+      <h1 slot="title">Please Confirm</h1>
+      <p>With your confirmation you agree to pay the full amount!</p>
+    </aa-modal>
+    <p>Please confirm your choice.</p>
+    <button>Show details & Confirm</button>
+
+    <script>
+      const confirmButton = document.querySelector('button');
+      const modal = document.querySelector('aa-modal');
+
+      modal.addEventListener('confirm', () => {
+        console.log('Confirmed...');
+      });
+      modal.addEventListener('cancel', () => {
+        console.log('Cancelled...');
+      });
+
+      confirmButton.addEventListener('click', () => {
+        // modal.setAttribute('opened', '');
+        if (!modal.isOpen) {
+          modal.open();
+        }
+      });
+    </script>
+
     <!-- <template id="tooltip-template">
       <slot>Some Default</slot>
       <span> (?)</span>
     </template> -->
-    <p>
+
+    <!-- <p>
       <aa-tooltip
         class="important"
         text="Web Components is a set of standards."
@@ -45,21 +79,24 @@
       </aa-tooltip>
       are awesome!
     </p>
-    <aa-tooltip></aa-tooltip>
+
+    <aa-tooltip></aa-tooltip> -->
+
     <!-- <uc-modal >
       <h1 slot="title">The Modal Title</h1>
       <p>This is our first web component!</p>
     </uc-modal> -->
+
     <!-- <script>
       const modal = document.querySelector('uc-modal');
       setTimeout(() => {
         modal.open();
       }, 3000);
     </script> -->
-    <a
+
+    <!-- <a
       is="aa-confirm-link"
       href="https://www.google.com"
-      >Google</a
-    >
+      >Google</a> -->
   </body>
 </html>
