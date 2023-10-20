@@ -9,9 +9,24 @@
     <title>Web Components</title>
     <!-- <script src="modal.js"></script> -->
     <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        --color-primary: #a4e6fc;
+        font-family: sans-serif;
+      }
       div {
         border: 2px solid orange;
       }
+      /* aa-tooltip {
+        border: 1px solid blue;
+        padding: 0.15rem;
+      }
+      .highlight {
+        background-color: #fcfcba;
+        border-bottom: 2px solid blue;
+      }*/
     </style>
     <script src="./scripts/tooltip.js"></script>
     <script src="./scripts/confirm-link.js"></script>
@@ -22,8 +37,11 @@
       <span> (?)</span>
     </template> -->
     <p>
-      <aa-tooltip text="Web Components is a set of standards.">
-        Web Components
+      <aa-tooltip
+        class="important"
+        text="Web Components is a set of standards."
+      >
+        <span class="highlight">Web Components</span>
       </aa-tooltip>
       are awesome!
     </p>
